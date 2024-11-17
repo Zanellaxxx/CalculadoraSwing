@@ -148,24 +148,19 @@ public class Calculadora {
                     num2 = Double.parseDouble(txtTela.getText());
                     double resultado = 0;
 
-                    switch (operador) {
-                        case "+":
-                            resultado = num1 + num2;
-                            break;
-                        case "-":
-                            resultado = num1 - num2;
-                            break;
-                        case "*":
-                            resultado = num1 * num2;
-                            break;
-                        case "/":
-                            if (num2 != 0) {
-                                resultado = num1 / num2;
-                            } else {
-                                txtTela.setText("Erro");
-                                return;
-                            }
-                            break;
+                    if (operador.equals("+")) {
+                        resultado = num1 + num2;
+                    } else if (operador.equals("-")) {
+                        resultado = num1 - num2;
+                    } else if (operador.equals("*")) {
+                        resultado = num1 * num2;
+                    } else if (operador.equals("/")) {
+                        if (num2 != 0) {
+                            resultado = num1 / num2;
+                        } else {
+                            txtTela.setText("Erro");
+                            return;
+                        }
                     }
 
                     txtTela.setText(String.valueOf(resultado));
@@ -174,6 +169,7 @@ public class Calculadora {
                 }
             }
         });
+
 
         btnLimpar.addActionListener(new ActionListener() {
             @Override
